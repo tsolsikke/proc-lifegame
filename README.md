@@ -35,7 +35,7 @@
 
 ## システム構成
 
-![architecture](docs/architecture.png)
+<img src="docs/architecture.png" alt="architecture" width="50%">
 
 `proc-coordinator` が親プロセスとして動作し、盤面サイズに応じて複数の `proc-cell` を起動します。  
 各 `proc-cell` は自分の座標・生死状態・世代番号を保持し、1世代ごとに `coordinator` から近傍情報を受け取って次状態を計算します。
@@ -56,7 +56,7 @@ flowchart LR
 
 ## プロセスモデル
 
-![process model](docs/process-model.png)
+<img src="docs/process-model.png" alt="process model" width="50%">
 
 OS上では `proc-coordinator` と多数の `proc-cell` が、それぞれ独立した別プロセスとして存在します。
 
@@ -68,7 +68,7 @@ OS上では `proc-coordinator` と多数の `proc-cell` が、それぞれ独立
 
 ## バリア同期
 
-![barrier sync](docs/barrier-sync.png)
+<img src="docs/barrier-sync.png" alt="barrier sync" width="50%">
 
 ライフゲームでは、全セルが同じ世代の状態をもとに次世代を計算する必要があります。  
 そのため、`proc-lifegame` ではバリア同期を使っています。
@@ -91,7 +91,7 @@ coordinator が全 cell の応答を待つ
 
 ## プロセス間通信
 
-![ipc flow](docs/ipc-flow.png)
+<img src="docs/ipc-flow.png" alt="ipc flow" width="50%">
 
 通信にはTCP localhostを使い、メッセージ形式にはJSONを使っています。
 
