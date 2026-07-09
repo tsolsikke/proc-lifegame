@@ -43,20 +43,11 @@
 表示は `internal/ui` が担当しますが、UIは `cell` に直接通信しません。  
 UI が見るのは、あくまで `coordinator` が生成した盤面スナップショットだけです。
 
-```mermaid
-flowchart LR
-    UI[TUI / CUI] -->|snapshot| COORD[proc-coordinator]
-    COORD -->|launch| CELL1[proc-cell 0,0]
-    COORD -->|launch| CELL2[proc-cell 1,0]
-    COORD -->|launch| CELLN[proc-cell ...]
-    COORD <-->|TCP localhost / JSON| CELL1
-    COORD <-->|TCP localhost / JSON| CELL2
-    COORD <-->|TCP localhost / JSON| CELLN
-```
+<img src="docs/coordinator.png" alt="coordinator" width="50%">
 
 ## プロセスモデル
 
-<img src="docs/process-model.png" alt="process model" width="50%">
+<img src="docs/process-model.png" alt="process model" width="70%">
 
 OS上では `proc-coordinator` と多数の `proc-cell` が、それぞれ独立した別プロセスとして存在します。
 
@@ -68,7 +59,7 @@ OS上では `proc-coordinator` と多数の `proc-cell` が、それぞれ独立
 
 ## バリア同期
 
-<img src="docs/barrier-sync.png" alt="barrier sync" width="50%">
+<img src="docs/barrier-sync.png" alt="barrier sync" width="70%">
 
 ライフゲームでは、全セルが同じ世代の状態をもとに次世代を計算する必要があります。  
 そのため、`proc-lifegame` ではバリア同期を使っています。
@@ -91,7 +82,7 @@ coordinator が全 cell の応答を待つ
 
 ## プロセス間通信
 
-<img src="docs/ipc-flow.png" alt="ipc flow" width="50%">
+<img src="docs/ipc-flow.png" alt="ipc flow" width="70%">
 
 通信にはTCP localhostを使い、メッセージ形式にはJSONを使っています。
 
@@ -267,7 +258,7 @@ go run ./cmd/proc-coordinator \
 ## CUIモード
 
 CUIモードでは世代ごとにターミナルをクリアし、最新状態だけを再描画します。  
-  TUIより表示コストが低いため、デバッグや大きめの盤面の確認に向いています。
+TUIより表示コストが低いため、デバッグや大きめの盤面の確認に向いています。
 
 ## ログ出力
 
