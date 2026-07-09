@@ -59,7 +59,7 @@ OS上では `proc-coordinator` と多数の `proc-cell` が、それぞれ独立
 
 ## バリア同期
 
-<img src="docs/barrier-sync.png" alt="barrier sync" width="70%">
+<img src="docs/barrier-sync.png" alt="barrier sync" width="23%">
 
 ライフゲームでは、全セルが同じ世代の状態をもとに次世代を計算する必要があります。  
 そのため、`proc-lifegame` ではバリア同期を使っています。
