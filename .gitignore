@@ -1,6 +1,67 @@
+# --- Go build artifacts -------------------------------------------------------
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary built with `go test -c`
 *.test
+
+# Coverage / profiling output
 *.out
-coverage.out
-.git
-.codex
-.agents
+coverage.*
+*.prof
+
+# --- Go modules / workspace ---------------------------------------------------
+# vendor/
+go.work
+go.work.sum
+
+# --- Environment / secrets ----------------------------------------------------
+.env
+.env.*
+!.env.example
+
+# --- Project binaries (adjust per repo) ---------------------------------------
+/bin/
+/dist/
+
+# --- OS files -----------------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+# Linux
+*~
+.directory
+.Trash-*
+
+# --- Editors / IDEs -----------------------------------------------------------
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+
+# --- AI / prompt working files ------------------------------------------------
+*-prompt.md
+*.prompt.md
+/prompts/
+.aider*
+.cursor/
+.cursorrules
+
+# 常設のエージェント指示ファイル
+CLAUDE.md
+AGENTS.md
+.claude/
+.codex/
+.agents/
